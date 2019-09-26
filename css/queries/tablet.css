@@ -1,0 +1,27 @@
+@media screen and (max-width: 768px) {
+    .container {
+        width: 480px;
+    }
+
+    .hotel-search__list {
+        display: block;
+    }
+
+    .hotel-search__item {
+        display: block;
+    }
+
+    .hotel-search__item::before {
+        display: none;
+    }
+
+    .hotel_label {
+        display: block;
+        width: 100%;
+    }
+
+    .date_entry_label, .date_departure_label {
+        width: 41%;
+        font-size: 0;
+    }
+}

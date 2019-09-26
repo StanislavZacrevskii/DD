@@ -1,0 +1,30 @@
+@media screen and (max-width: 992px) {
+    .container {
+        width: 767px;
+    }
+
+    .hotel-search__item:last-child {
+        display: block;
+        text-align: center;
+    }
+
+    .hotel-search__item:last-child::before {
+        display: none;
+    }
+
+    .family_label {
+        text-align: left;
+    }
+
+    .hotel_label {
+        width: 308px;
+    }
+
+    .hotel-search__add_search {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+
+
+}

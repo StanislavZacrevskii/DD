@@ -1,0 +1,8 @@
+@import "https://fonts.googleapis.com/css?family=Fira+Sans&display=swap";
+
+@import "./normalize.css";
+@import "./settings.css";
+@import "./styles.css";
+@import "./queries/desktop.css";
+@import "./queries/laptop.css";
+@import "./queries/tablet.css";

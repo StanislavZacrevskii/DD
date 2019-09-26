@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dedey Digital</title>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<div class="wrapper">
+    <section class="hotel-search">
+        <div class="container">
+            <div class="hotel-search__wrapper">
+                <form action="" class="hotel-search__form">
+                    <ul class="hotel-search__list">
+                        <li class="hotel-search__item">
+                            <label class="hotel-search__label hotel_label">
+                                Место или название отеля
+                                <input class="hotel-search__input hotel_input"
+                                       type="text"
+                                       name="location"
+                                       tabindex="1"
+                                       placeholder="Введите здесь место">
+                            </label>
+                        </li>
+                        <li class="hotel-search__item">
+                            <label class="hotel-search__label date_entry_label">
+                                Заезд
+                                <input type="text"
+                                       id="dateEntry"
+                                       name="dateEntry"
+                                       readonly
+                                       tabindex="2"
+                                       class="hotel-search__input date_entry_input"
+                                       placeholder="Дата заезда">
+                            </label>
+                            <div class="date_dot"></div>
+                            <label class="hotel-search__label date_departure_label">
+                                Выезд
+                                <input type="text"
+                                       name="dateDeparture"
+                                       id="dateDeparture"
+                                       readonly
+                                       class="hotel-search__input date_departure_input"
+                                       placeholder="Дата выезда">
+                            </label>
+                        </li>
+                        <li class="hotel-search__item">
+                            <label class="hotel-search__label family_label">
+                                Номера
+                                <div class="input__wrapper">
+                                    <input type="number"
+                                           class="family__number_input"
+                                           id="number"
+                                           tabindex="3"
+                                           name="number"
+                                           value="0"
+                                           min="0">
+                                    <button class="but inc"
+                                            type="button"
+                                            onclick="input_val('inc','number')"></button>       
+                                    <button class="but dec"
+                                            type="button"
+                                            onclick="input_val('dec','number')"></button>
+                                </div>
+                            </label>
+                            <label class="hotel-search__label family_label">
+                                Взрослые
+                                <div class="input__wrapper">
+                                    <input type="number"
+                                           class="family__number_input"
+                                           id="adults"
+                                           tabindex="4"
+                                           name="adults"
+                                           value="0"
+                                           min="0">
+                                    <button class="but inc"
+                                            type="button"
+                                            onclick="input_val('inc','adults')"></button>       
+                                    <button class="but dec"
+                                            type="button"
+                                            onclick="input_val('dec','adults')"></button>
+                                </div>
+                            </label>
+                            <label class="hotel-search__label family_label">
+                                Дети
+                                <div class="input__wrapper">
+                                    <input type="number"
+                                           class="family__number_input"
+                                           id="child"
+                                           tabindex="5"
+                                           name="child"
+                                           value="0"
+                                           min="0">
+                                    <button class="but inc"
+                                            type="button"
+                                            onclick="input_val('inc','child')"></button>       
+                                    <button class="but dec"
+                                            type="button"
+                                            onclick="input_val('dec','child')"></button>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                    <button type="button" tabindex="6" class="hotel-search__add_search"></button>
+                    <button type="submit" tabindex="7" class="hotel-search__submit">НАЙТИ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $('#dateEntry').datepicker({
+                dateFormat : "dd MM",
+                range: 'period',
+                minDate: 0,
+                numberOfMonths: 2,
+                dayNamesMin : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+                monthNames : ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'],
+                onClose: function (dateText, inst) {
+                    if (inst.inline) {
+                        $('#dateEntry').val('');
+                        delete inst.rangeStart;
+                        inst.inline = false;
+                    }
+                },
+                onSelect: function (dateText, inst) {
+                    var textStart;
+                    if (!inst.rangeStart) {
+                        inst.inline = true;
+                        inst.rangeStart = dateText;
+                    } else {
+                        inst.inline = false;
+                        textStart = inst.rangeStart;
+                        if (textStart > dateText) {
+                            $('#dateEntry').val(dateText);
+                            $('#dateDeparture').val(textStart);
+                            inst.rangeStart = null;
+                            return false;
+                        }
+                        $('#dateEntry').val(textStart);
+                        $('#dateDeparture').val(dateText);
+                        inst.rangeStart = null;
+                    }
+                }
+            });
+        } );
+    </script>
+    <script src="./js/main.js"></script>
+</div>
+</body>
+</html>

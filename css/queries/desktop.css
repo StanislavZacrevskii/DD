@@ -1,0 +1,18 @@
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 991px;
+    }
+
+    .hotel-search__item {
+        margin-bottom: 15px;
+    }
+
+    .hotel-search__add_search {
+        vertical-align: sub;
+    }
+
+    .hotel-search__submit {
+        display: block;
+        margin: 0 auto;
+    }
+}
